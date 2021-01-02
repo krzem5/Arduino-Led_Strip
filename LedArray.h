@@ -11,6 +11,7 @@ class LedArray{
 		void reset(void);
 		uint16_t length(void);
 		void pixel(uint16_t i,uint32_t c);
+		void pixel(uint16_t i,uint32_t c,uint8_t v);
 		void update(void);
 	private:
 		uint16_t _l;

@@ -24,16 +24,30 @@ void setup(){
 	la.init();
 	la.reset();
 	la.update();
+	Serial.begin(9600);
 }
 
 
 
 void loop(){
+	static uint32_t tm=0;
 	static uint8_t i=0;
-	for (uint16_t j=0;j<la.length();j++){
-		la.pixel(j,hue2rgb((i+j)&0xff));
+	if (Serial&&Serial.available()>0){
+		Serial.read();
+		tm=millis()+1000;
 	}
-	la.update();
-	i++;
-	delay(0.1);
+	if (tm!=0){
+		if (tm<millis()){
+			tm=0;
+			la.reset();
+		}
+		else{
+			for (uint16_t j=0;j<la.length();j++){
+				la.pixel(j,hue2rgb((i+j)&0xff),16);
+			}
+		}
+		la.update();
+		i++;
+		delay(0.1);
+	}
 }
