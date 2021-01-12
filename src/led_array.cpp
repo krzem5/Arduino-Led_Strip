@@ -1,5 +1,5 @@
-#include <Arduino.h>
-#include <LedArray.h>
+#include <arduino.h>
+#include <include/led_array.h>
 
 
 
