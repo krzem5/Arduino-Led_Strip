@@ -20,9 +20,9 @@ LedArray::~LedArray(void){
 
 void LedArray::init(void){
 	pinMode(this->_p,OUTPUT);
-    digitalWrite(this->_p,LOW);
-    this->_pt=portOutputRegister(digitalPinToPort(this->_p));
-    this->_pm=digitalPinToBitMask(this->_p);
+	digitalWrite(this->_p,LOW);
+	this->_pt=portOutputRegister(digitalPinToPort(this->_p));
+	this->_pm=digitalPinToBitMask(this->_p);
 }
 
 
